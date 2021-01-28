@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { withRouter } from 'react-router-dom';
 
 import { ReactComponent as DeleteIcon } from './delete.svg';
 import './task.scss';
 
 const Task = props => {
+  console.log(props);
   return (
     <div className='task'>
       <div
@@ -19,6 +21,7 @@ const Task = props => {
       </div>
       <DeleteIcon
         className='task_delete-icon'
+        onClick={() => props.history.push(`taskslist/${props.id}`)}
       />
     </div>
   );
@@ -31,4 +34,4 @@ Task.propTypes = {
   id: PropTypes.string.isRequired
 };
 
-export default Task;
+export default withRouter(Task);

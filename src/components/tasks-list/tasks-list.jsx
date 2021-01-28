@@ -14,6 +14,7 @@ class TasksList extends React.Component {
   state = { tasks: [], loading: false, message: null };
 
   componentDidMount() {
+    console.log(this.props);
     this.setState({ loading: true });
     tomorrowRequest
       .get('/tasks')
